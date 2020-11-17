@@ -15,10 +15,21 @@ public class Scenario {
 	private Event head;
 	private GUIManager gui;
 
-	/* TO BE COMPLETED */
+	Scenario(GUIManager gui, Event head){
+		this.gui = gui;
+		this.head = head;
+	}
+
+	public String run(){
+		while(true) {
+			head = head.run();
+			if(head == null)return MSG_FINALE;
+		}
+	}
 
 	/* MAIN */
 	public static void main(String[] args) {
+
 		Scenario scenario;
 		GUIManager gui = new GUIManager(System.in, System.out, System.err);
 
@@ -52,11 +63,11 @@ public class Scenario {
 		// ***E
 		// ***event3
 
-		Event event3 = new EventExactSolution(gui, "Wizard: how much is worth pi?", "3.14159");
+		/*Event event3 = new EventExactSolution(gui, "Wizard: how much is worth pi?", "3.14159");
 		event2.setData(event2.getData() + " (3)2.3");
 		event2.addDaughter(event3);
 		event3.addDaughter(endEvent);
-		event3.addDaughter(event3);
+		event3.addDaughter(event3);*/
 
 		/* ******* */
 		// **2.3
@@ -67,12 +78,12 @@ public class Scenario {
 		// ...
 
 		int[] mask = { 3, 6, 7 };
-		Event event4 = new EventRandomSolution(gui, "Random choice of the next event...", mask, "Dice rolling... Roll=",
+		/*Event event4 = new EventRandomSolution(gui, "Random choice of the next event...", mask, "Dice rolling... Roll=",
 				"\nNext event is ");
 		event3.setDaughter(event4, 0);
 		event4.addDaughter(event2);
 		event4.addDaughter(endEvent);
-		event4.addDaughter(event3);
+		event4.addDaughter(event3);*/
 
 		System.out.println(scenario.run());
 	}
