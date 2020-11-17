@@ -83,7 +83,12 @@ public class NodeMultiple {
 	 * @param daughter
 	 */
 	public void addDaughter(NodeMultiple daughter) {
-		/* TO BE COMPLETED */
+		for(int i = 0; i < NODE_MAX_ARITY;i++){
+			if(getDaughter(i) == null){
+				setDaughter(daughter,i);
+				return;
+			}
+		}
 	}
 
 	/**

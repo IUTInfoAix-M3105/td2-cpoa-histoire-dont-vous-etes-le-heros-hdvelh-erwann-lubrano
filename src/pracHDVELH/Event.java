@@ -137,7 +137,7 @@ public class Event extends NodeMultiple {
 	/* TO BE COMPLETED */
 	public Event run(){
 		gui.output(getData());
-		int i = gui.getAnswer();
+		int i = gui.getAnswer()-1;
 
 		if(i > NODE_MAX_ARITY)return null;
 		return getDaughter(i);

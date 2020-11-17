@@ -23,7 +23,11 @@ public class Scenario {
 	public String run(){
 		while(true) {
 			head = head.run();
-			if(head == null)return MSG_FINALE;
+			if(head == null)return MSG_EMPTY_SCENARIO;
+			if(!head.hasDaughters()){
+				gui.output(head.getData());
+				return MSG_FINALE;
+			}
 		}
 	}
 
